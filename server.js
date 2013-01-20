@@ -125,9 +125,9 @@ var HTTPServer = HTTP.createServer(
 		}
 	);
 
-// Starts the HTTP server on port 9001.
-HTTPServer.listen(9001, function() {
-		System.log("Listening for connections on port 9001"); 
+// Starts the HTTP server on port 5000.
+HTTPServer.listen(5000, function() {
+		System.log("Listening for connections on port 5000"); 
 	}
 );
 

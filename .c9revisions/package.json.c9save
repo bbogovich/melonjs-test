@@ -1,2 +1,4 @@
 {"ts":1358707013980,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
 {"contributors":[],"silentsave":false,"ts":1358707023552,"patch":[[{"diffs":[[1,"{\n    \"name\": \"melonjs-test\",\n    \"version\": \"0.0.1\"\n}"]],"start1":0,"start2":0,"length1":0,"length2":54}]],"length":54,"saved":false}
+{"ts":1358707348468,"patch":[[{"diffs":[[0," \"0.0.1\""],[1,",\n    \"dependencies\":\n    {\n    \"socket.io\": \">= 0.8.7\"\n    }"],[0,"\n}"]],"start1":44,"start2":44,"length1":10,"length2":71}]],"length":115,"saved":false}
+{"ts":1358707690819,"patch":[[{"diffs":[[0,"   \""],[1,"web"],[0,"socket"],[-1,".io"],[0,"\": \">= "],[1,"1."],[0,"0.8"],[-1,".7"],[0,"\"\n  "]],"start1":81,"start2":81,"length1":29,"length2":29}]],"length":115,"saved":false}

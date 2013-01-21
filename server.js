@@ -98,25 +98,40 @@ var HTTPServer = HTTP.createServer(
 				}
 			}
 			var content;
+			var contentLength = 0;
+			var headers = {};
 			try{
 				var url=Request.url;
 				if(url=="/"){
 					url="/index.html";
 				}
 				content = fs.readFileSync(url.replace(/^\//,""));
+				contentLength=content.length;
 				var urlMatch = url.match(/\.([^$]+)$/);
 				var contentType="text/plain";
 				if(urlMatch!==null){
+					headers["Content-Length"]=contentLength;
 					switch(urlMatch[1].toLowerCase()){
 						case "html":
-							contentType="text/html";
+							headers["Content-Type"]="text/html";
 							break;
 						case "js":
-							contentType="application/javascript";
+							headers["Content-Type"]="application/javascript";
 							break;
+						case "mp3":
+							headers["Content-Type"]="audio/mpeg";
+							headers["Accept-Ranges"]="bytes";
+							headers["Content-Range"]="bytes 0-"+(contentLength-1)+"/"+contentLength;
+							break;
+						
 					}
 				}
-				Response.writeHead(200, { "Content-Type": contentType });
+				System.log("------------------------------------\nResponse Headers");
+				for (var i in headers){
+					System.log(i+"="+headers[i]);
+				}
+				System.log("------------------------------------\nResponse Headers");
+				Response.writeHead(200, headers);
 			}catch(e){
 				content="404!!!";
 				Response.writeHead(404, { "Content-Type": "text/plain" });
